@@ -548,7 +548,7 @@
     self.toolbar.alpha = 1.000;
     self.toolbar.autoresizesSubviews = YES;
     self.toolbar.autoresizingMask = toolbarIsAtBottom ? (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin) : UIViewAutoresizingFlexibleWidth;
-    self.toolbar.barStyle = UIBarStyleBlackOpaque;
+    self.toolbar.barStyle = UIBarStyleBlack;
     self.toolbar.clearsContextBeforeDrawing = NO;
     self.toolbar.clipsToBounds = NO;
     self.toolbar.contentMode = UIViewContentModeScaleToFill;
@@ -620,6 +620,11 @@
     self.closeButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
     self.closeButton.enabled = YES;
     self.closeButton.tintColor = [UIColor whiteColor];
+    [self.closeButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+    [NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil]  forState:UIControlStateNormal];
+    //[UIFont fontWithName:@"Helvetica-Bold" size:20.0], NSFontAttributeName,
+    //[UIColor whiteColor], NSForegroundColorAttributeName,
+    //nil] forState:UIControlStateNormal];
 
     NSMutableArray* items = [self.toolbar.items mutableCopy];
     [items replaceObjectAtIndex:0 withObject:self.closeButton];
